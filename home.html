@@ -1,0 +1,40 @@
+<!DOCTYPE=HTML>
+<html lang="en" ng-app="awesomeapp">
+<head>
+  <meta charset="utf-8">
+  <title>Recipe4Everyone</title>
+
+  <!--stylesheets-->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--external libraries-->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+  <!--application scripts-->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/list.js"></script>
+</head>
+
+<body>
+  <!--main container-->
+  <div class="container">
+    <!--page title-->
+    <div class="page-title">
+      <h1>Spoiling Fridge</h1>
+      <h3>The magical Spoiling Fridge tells you what you can cook with ingredients at home.</h3>
+      <h3>Feed it with ingredients before they go bad, or they will end up in the black hole inside Spoiling Fridge and be forever gone.</h3>
+      <h3>Spoiling Fridge also caters to all your dietary needs.</h3>
+    </div>
+
+    <!--list controller-->
+    <div ng-controller="listController as lstctrl">
+      <p ng-repeat="recipe in lstctrl.data">
+        {{recipe.description}}
+      </p>
+    </div>
+
+  </div> <!--end of body container-->
+
+</body>
+</html>
