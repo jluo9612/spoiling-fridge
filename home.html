@@ -2,14 +2,22 @@
 <html lang="en" ng-app="awesomeapp">
 <head>
   <meta charset="utf-8">
-  <title>Recipe4Everyone</title>
+  <title>Spoiling Fridge</title>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!--stylesheets-->
+  <!--Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Coming+Soon" rel="stylesheet">
+
+  <!--custom stylesheets-->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/spinner.css">
 
   <!--external libraries-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!--application scripts-->
   <script src="js/app.js"></script>
@@ -17,22 +25,116 @@
 </head>
 
 <body>
+
   <!--main container-->
   <div class="container">
-    <!--page title-->
-    <div class="page-title">
-      <h1>Spoiling Fridge</h1>
-      <h3>The magical Spoiling Fridge tells you what you can cook with ingredients at home.</h3>
-      <h3>Feed it with ingredients before they go bad, or they will end up in the black hole inside Spoiling Fridge and be forever gone.</h3>
-      <h3>Spoiling Fridge also caters to all your dietary needs.</h3>
+
+    <!--slider-->
+    <div id="myCarousel" class="carousel slide header" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="assets/herbs-spices.jpg" alt="spices">
+          </div>
+
+          <div class="item">
+            <img src="assets/japanese-ingredients.jpg" alt="japanese">
+          </div>
+
+          <div class="item">
+            <img src="assets/Stumble_Bloggers_Feat.jpg" alt="cutting">
+          </div>
+
+          <div class="item">
+            <img src="assets/fr.jpg" alt="rice">
+          </div>
+        </div>
     </div>
 
-    <!--list controller-->
-    <div ng-controller="listController as lstctrl">
-      <p ng-repeat="recipe in lstctrl.data">
-        {{recipe.description}}
-      </p>
-    </div>
+    <!--inner container-->
+    <div class="inner">
+      <!--page title-->
+      <div class="page-title">
+        <img src="assets/ChefEmoji.jpg" style="width: 8%; height: auto;">
+        <img src="assets/paella.png" style="width: 8%; height: auto;">
+        <img src="assets/nabe.png" style="width: 8%; height: auto;">
+        <img src="assets/spa.png" style="width: 8%; height: auto;">
+        <img src="assets/ramen.png" style="width: 8%; height: auto;">
+        <img src="assets/pizz.png" style="width: 8%; height: auto;">
+        <img src="assets/curry.png" style="width: 8%; height: auto;">
+        <h1 style="font-family: 'Press Start 2P', cursive; color: #312c27;">Spoiling Fridge</h1>
+      </div>
+
+      <!--sticky notes-->
+      <div class="bulletin">
+        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
+          <p class="note">The magical Spoiling Fridge provides you with recipes and cooking ideas using your ingredients at home. </p>
+        </div>
+
+        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
+          <p class="note">Feed it with your ingredients before they go bad, or they will end up in the black hole inside Spoiling Fridge and be forever gone!</p>
+        </div>
+
+        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
+          <p class="note">Have dietary restrictions? Not to worry! The Spoiling Fridge will filter out the bad ones. </p>
+        </div>
+
+      </div>
+
+      <!--list controller-->
+      <div ng-controller="listController as lstctrl">
+          <!--Search bar-->
+          <div class="bar" id="wrap">
+            <form action="#">
+              <input type="text"
+                     id="search"
+                     placeholder="Ingredients"
+                     ng-model="lstctrl.search">
+                     <input id="search_submit" type="submit">
+            </form>
+          </div>
+
+
+          <!--hit info blocks-->
+          <div class="row">
+            <div class="col-sm-6" ng-repeat="hit in lstctrl.data">
+              <div class="well well-sm">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive">
+                    </div>
+                    <div class="col-md-6">
+                      <h4>{{hit.type}}</h4>
+                      <p><strong>Locations: </strong>{{hit.locations}}</p>
+                      <p><strong>Size: </strong>{{hit.size}}</p>
+                      <p><strong>Average Lifespan: </strong>{{hit.lifespan}}</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+      <!--loading spinner-->
+       <div class="sk-folding-cube">
+         <div class="sk-cube1 sk-cube"></div>
+         <div class="sk-cube2 sk-cube"></div>
+         <div class="sk-cube4 sk-cube"></div>
+         <div class="sk-cube3 sk-cube"></div>
+       </div>
+
+     </div>
+
+
+     <span>
+       <button class="btn btn-default" id="databtn" onclick="myFunction()">Get Data</button>
+     </span>
+
+
+     <div class="results">
+
+     </div>
 
   </div> <!--end of body container-->
 

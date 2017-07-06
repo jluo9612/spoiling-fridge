@@ -1,3 +1,33 @@
-body {
-  margin-left: auto;
+/*body {
+  padding: 2%;
+}*/
+
+.header {
+  padding: 5%;
+}
+
+.inner {
+  background-color: #e8e8e8;
+  padding: 5%;
+  width: 90%;
+  margin: auto;
+}
+
+/*sticky note*/
+
+.sticky {
+  background-image: url("../assets/yellow-sticky.svg");
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  padding: 5%;
+  float: left;
+}
+
+.note {
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: 5%;
+  color: #312c27;
 }
