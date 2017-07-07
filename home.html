@@ -81,38 +81,38 @@
 
       </div>
 
-      <!--list controller-->
+      <!--Angular list controller starts HERE-->
       <div ng-controller="listController as lstctrl">
           <!--Search bar-->
           <div class="bar" id="wrap">
-            <form action="#">
+            <form ng-submit="lstctrl.search()">
               <input type="text"
                      id="search"
-                     placeholder="Ingredients"
-                     ng-model="lstctrl.search">
+                     placeholder="Ingredients">
                      <input id="search_submit" type="submit">
             </form>
           </div>
 
-
-          <!--hit info blocks-->
-          <div class="row">
-            <div class="col-sm-6" ng-repeat="hit in lstctrl.data">
-              <div class="well well-sm">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive">
-                    </div>
-                    <div class="col-md-6">
-                      <h4>{{hit.type}}</h4>
-                      <p><strong>Locations: </strong>{{hit.locations}}</p>
-                      <p><strong>Size: </strong>{{hit.size}}</p>
-                      <p><strong>Average Lifespan: </strong>{{hit.lifespan}}</p>
-                    </div>
+        <!--info blocks-->
+        <div class="row">
+          <div class="col-sm-6" ng-repeat="hit in lstctrl.data">
+            <div class="well well-sm">
+                <div class="row">
+                  <div class="col-md-6" ng-repeat="recipe in hit">
+                    <img ng-src="{{recipe.image}}" class="img-rounded img-responsive">
                   </div>
-              </div>
+                  <div class="col-md-6">
+                    <h4>{{hit.type}}</h4>
+                    <p><strong>Locations: </strong>{{hit.locations}}</p>
+                    <p><strong>Size: </strong>{{hit.size}}</p>
+                    <p><strong>Average Lifespan: </strong>{{hit.lifespan}}</p>
+                  </div>
+                </div>
             </div>
           </div>
+        </div>
+
+
       </div>
 
 
@@ -125,11 +125,6 @@
        </div>
 
      </div>
-
-
-     <span>
-       <button class="btn btn-default" id="databtn" onclick="myFunction()">Get Data</button>
-     </span>
 
 
      <div class="results">
