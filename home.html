@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <!--Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Coming+Soon" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Coming+Soon|Comfortaa" rel="stylesheet">
 
   <!--custom stylesheets-->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/spinner.css">
+  <link rel="stylesheet" href="css/switch.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!--external libraries-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -27,7 +29,7 @@
 <body>
 
   <!--main container-->
-  <div class="container">
+  <div ng-controller="listController as lstctrl">
 
     <!--slider-->
     <div id="myCarousel" class="carousel slide header" data-ride="carousel">
@@ -62,7 +64,7 @@
         <img src="assets/ramen.png" style="width: 8%; height: auto;">
         <img src="assets/pizz.png" style="width: 8%; height: auto;">
         <img src="assets/curry.png" style="width: 8%; height: auto;">
-        <h1 style="font-family: 'Press Start 2P', cursive; color: #312c27;">Spoiling Fridge</h1>
+        <h1 style="font-family: 'Comfortaa', cursive; color: #312c27; font-size: 55px;">Spoiling Fridge</h1>
       </div>
 
       <!--sticky notes-->
@@ -76,62 +78,82 @@
         </div>
 
         <div class="sticky" style="font-family: 'Coming Soon', cursive;">
-          <p class="note">Have dietary restrictions? Not to worry! The Spoiling Fridge will filter out the bad ones. </p>
+          <p class="note">Have dietary restrictions? Not to worry! The Spoiling Fridge will filter out the ones that you don't want. </p>
         </div>
-
       </div>
 
-      <!--Angular list controller starts HERE-->
-      <div ng-controller="listController as lstctrl">
-          <!--Search bar-->
-          <div class="bar" id="wrap">
-            <form ng-submit="lstctrl.search()">
-              <input type="text"
-                     id="search"
-                     placeholder="Ingredients">
-                     <input id="search_submit" type="submit">
-            </form>
-          </div>
 
-        <!--info blocks-->
-        <div class="row">
-          <div class="col-sm-6" ng-repeat="hit in lstctrl.data">
-            <div class="well well-sm">
-                <div class="row">
-                  <div class="col-md-6" ng-repeat="recipe in hit">
-                    <img ng-src="{{recipe.image}}" class="img-rounded img-responsive">
-                  </div>
-                  <div class="col-md-6">
-                    <h4>{{hit.type}}</h4>
-                    <p><strong>Locations: </strong>{{hit.locations}}</p>
-                    <p><strong>Size: </strong>{{hit.size}}</p>
-                    <p><strong>Average Lifespan: </strong>{{hit.lifespan}}</p>
-                  </div>
-                </div>
+      <!--Search controls-->
+      <div class="searchctrl">
+        <div class="bar" id="wrap">
+          <form ng-submit="lstctrl.search()">
+            <input type="text"
+                   id="search"
+                   autocomplete="off"
+                   placeholder="Ingredients or keywords">
+                   <input id="search_submit" type="submit">
+          </form>
+        </div>
+
+      </div> <!--end of search bar-->
+
+       <!--filters-->
+       <div class="filters">
+         <span class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+
+      </div> <!--end of filters-->
+
+
+    </div> <!--end of inner container-->
+
+    <!--results-->
+    <div>
+        <!--results block-->
+        <div class="results">
+          <div class="yitiao" ng-repeat="hit in lstctrl.data">
+            <div class="col pic">
+              <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive" style="width: 100px; height: auto; float: left; margin: 2%;">
+            </div>
+            <div class="col text">
+              <h4>{{hit.recipe.label}}</h4>
+              <h5><strong>Calories: </strong> {{hit.recipe.calories}}</h5>
+              <h5><strong>Recipe: </strong>
+                <a href="{{hit.recipe.url}}" target="_blank">Click me!</a>
+              </h5>
+              <h5><strong>Health Labels: </strong> <span ng-repeat="healthLabel in hit.recipe.healthLabels">{{healthLabel + " | "}}</span> </h5>
+              <h5><strong>Diets: </strong> <span ng-repeat="dietLabel in hit.recipe.dietLabels">{{dietLabel + " | "}}</span> </h5>
             </div>
           </div>
         </div>
 
-
-      </div>
-
-
-      <!--loading spinner-->
-       <div class="sk-folding-cube">
-         <div class="sk-cube1 sk-cube"></div>
-         <div class="sk-cube2 sk-cube"></div>
-         <div class="sk-cube4 sk-cube"></div>
-         <div class="sk-cube3 sk-cube"></div>
-       </div>
-
-     </div>
-
-
-     <div class="results">
-
-     </div>
+     </div> <!--end of results-->
 
   </div> <!--end of body container-->
+
+
+  <!--footer-->
+  <footer>
+
+  </footer>
 
 </body>
 </html>

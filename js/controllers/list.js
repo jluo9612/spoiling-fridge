@@ -24,7 +24,7 @@ function listController ($http) {
       console.log(response);
       vm.data = response.data.hits;
     }, function errorCallback() {
-      alert("error");
+      alert("Request failed. Please check your Internet connection and try again.");
     });
 
   }

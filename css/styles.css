@@ -1,33 +1,78 @@
-/*body {
-  padding: 2%;
-}*/
+body {
+  margin-left: 5%;
+  margin-right: 5%;
+}
 
 .header {
-  padding: 5%;
+  border-right-width: 1px;
+  border: solid #93897d;
+  border-bottom: none;
+  margin-left: 5%;
+  margin-right: 5%;
+  top: 0;
 }
 
 .inner {
-  background-color: #e8e8e8;
+  border-width: 0 2px;
+  border: solid #93897d;
+  border-top: none;
+  border-bottom-width: 0.6em;
   padding: 5%;
   width: 90%;
-  margin: auto;
+  height: auto;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*search controls*/
+
+.searchctrl {
+  padding: 2%;
+  border-width: 1em;
+  border-color: #fefefe;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.filters {
+  font-family: 'Lato';
+  color: #3b2d32;
+  font-size: 1.2em;
+  text-align: center;
 }
 
 /*sticky note*/
-
 .sticky {
-  background-image: url("../assets/yellow-sticky.svg");
   background-repeat: no-repeat;
-  height: 300px;
-  width: 300px;
   background-size: cover;
-  padding: 5%;
   float: left;
 }
 
 .note {
   font-weight: bold;
   font-size: 1.3em;
-  padding: 5%;
   color: #312c27;
+}
+
+/* results */
+.results {
+  padding: 5%;
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.yitiao {
+  font-family:
+  color: #3b2d32;
+  border-width: 0 2px;
+  border: solid #93897d;
+  border-bottom-width: 0.5em;
+  margin: 2%;
 }
