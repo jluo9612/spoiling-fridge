@@ -1,6 +1,10 @@
-<h1>The Spoiling Fridge is your best companion when your fridge is hoarded and you are out of cooking ideas.</h1>
+<h1>The Spoiling Fridge</h1>
+
+
+<img src="screenshot.png">
 
 <p>
+  It is your best companion when your fridge is hoarded and you are out of cooking ideas.
   Simply let it know what ingredients you need to use and any of your dietary/health concerns.
 </p>
 
