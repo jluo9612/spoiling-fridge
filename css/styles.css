@@ -1,6 +1,5 @@
 body {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-top: 5%;
 }
 
 .header {
@@ -15,47 +14,64 @@ body {
 .inner {
   border-width: 0 2px;
   border: solid #93897d;
-  border-top: none;
-  border-bottom-width: 0.6em;
+  border-bottom-width: 1em;
   padding: 5%;
-  width: 90%;
-  height: auto;
-  overflow: hidden;
+  overflow: visible;
   margin-left: auto;
   margin-right: auto;
+  width: 80%;
+}
+
+/*search message*/
+.src-msg {
+  text-align: center;
+  font-family: "Comfortaa";
 }
 
 /*search controls*/
-
 .searchctrl {
-  padding: 2%;
-  border-width: 1em;
-  border-color: #fefefe;
+  padding: 5%;
   width: 100%;
-  height: auto;
   position: relative;
-  overflow: hidden;
-  vertical-align: middle;
+  overflow: visible;
 }
 
 .filters {
-  font-family: 'Lato';
   color: #3b2d32;
-  font-size: 1.2em;
   text-align: center;
 }
 
-/*sticky note*/
-.sticky {
-  background-repeat: no-repeat;
-  background-size: cover;
-  float: left;
+.filters .label {
+  font-family: 'Philosopher';
+  font-size: 1.2em;
+  vertical-align: middle;
+  color: inherit;
+}
+
+#src-ins {
+  font-family: "Comfortaa";
+  float: right;
+  font-size: 1.3em;
+}
+
+/*bulletin*/
+.bulletin {
+  margin-top: 5%;
 }
 
 .note {
-  font-weight: bold;
+  font-family: 'Comfortaa';
+  padding: 5px;
   font-size: 1.3em;
   color: #312c27;
+}
+
+/* tips (show on data load) */
+.tips {
+  padding: 2%;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Philosopher';
 }
 
 /* results */
@@ -63,16 +79,14 @@ body {
   padding: 5%;
   width: 90%;
   height: auto;
-  overflow: hidden;
   margin-left: auto;
   margin-right: auto;
 }
 
 .yitiao {
-  font-family:
+  margin-bottom: 3%;
   color: #3b2d32;
   border-width: 0 2px;
   border: solid #93897d;
   border-bottom-width: 0.5em;
-  margin: 2%;
 }

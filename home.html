@@ -6,35 +6,152 @@
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+  <!--animate.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
   <!--Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Coming+Soon|Comfortaa" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Philosopher|Comfortaa" rel="stylesheet">
 
   <!--custom stylesheets-->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/search.css">
-  <link rel="stylesheet" href="css/spinner.css">
+  <!-- <link rel="stylesheet" href="css/spinner.css"> -->
+  <link rel="stylesheet" href="css/rotate.css">
   <link rel="stylesheet" href="css/switch.css">
+  <link rel="stylesheet" href="css/sidenav.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-  <!--external libraries-->
+  <!--external js libraries-->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!--application scripts-->
   <script src="js/app.js"></script>
   <script src="js/controllers/list.js"></script>
 </head>
 
-<body>
+<body ng-controller="listController as lstctrl">
+
+  <!--side nav-->
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!--filters-->
+    <div class="filters">
+
+      <div class="tips">
+        <p>Dietary concerns? The Fridge's got you.</p>
+      </div>
+
+      <!-- <span class="label"> Health/Diets: </span> -->
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Vegetarian</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Vegan</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Low-sodium</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Gluten-free</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Low-sugar</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Low-fat</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Paleo</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Low-carb</span>
+
+         <div class="switch">
+           <label>
+             <input type="checkbox">
+             <div class="slider round"></div>
+           </label>
+         </div>
+         <span class="label">Dairy-free</span>
+
+         <hr>
+
+         <span class="label">Calories: </span>
+         <input type="range" min="0" max="90000" step="0.1" value="0">
+
+    </div> <!--end of filters-->
+
+  </div> <!--end of sidenav-->
+
+  <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.height = "250px";
+        document.getElementById("main").style.marginTop = "250px";
+        document.getElementById("main").style.filter = "blur(2px)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.height = "0";
+        document.getElementById("main").style.marginTop= "0";
+        document.getElementById("main").style.filter = "blur(0px)";
+    }
+  </script>
+
 
   <!--main container-->
-  <div ng-controller="listController as lstctrl">
+  <div class="container-fluid" id="main">
+    <!--open nav-->
+    <div>
+      <h1 onclick="openNav()" class="rotate" style="font-family: 'Philosopher'; font-size: 40px; position: fixed; cursor: pointer;">Filters &#9776;</h1>
+    </div>
 
     <!--slider-->
-    <div id="myCarousel" class="carousel slide header" data-ride="carousel">
+    <!-- <div id="myCarousel" class="carousel slide header" data-ride="carousel"> -->
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <!-- <div class="carousel-inner">
           <div class="item active">
             <img src="assets/herbs-spices.jpg" alt="spices">
           </div>
@@ -50,38 +167,31 @@
           <div class="item">
             <img src="assets/fr.jpg" alt="rice">
           </div>
-        </div>
-    </div>
+        </div> -->
+    <!-- </div> -->
 
     <!--inner container-->
-    <div class="inner">
+    <div class="inner container-fluid">
       <!--page title-->
       <div class="page-title">
-        <img src="assets/ChefEmoji.jpg" style="width: 8%; height: auto;">
+        <!-- <img src="assets/ChefEmoji.jpg" style="width: 8%; height: auto;">
         <img src="assets/paella.png" style="width: 8%; height: auto;">
         <img src="assets/nabe.png" style="width: 8%; height: auto;">
         <img src="assets/spa.png" style="width: 8%; height: auto;">
         <img src="assets/ramen.png" style="width: 8%; height: auto;">
         <img src="assets/pizz.png" style="width: 8%; height: auto;">
-        <img src="assets/curry.png" style="width: 8%; height: auto;">
-        <h1 style="font-family: 'Comfortaa', cursive; color: #312c27; font-size: 55px;">Spoiling Fridge</h1>
+        <img src="assets/curry.png" style="width: 8%; height: auto;"> -->
+        <h1 style="font-family: 'Comfortaa', cursive; font-weight: bold; color: #312c27; font-size: 60px;">Spoiling Fridge</h1>
       </div>
 
       <!--sticky notes-->
       <div class="bulletin">
-        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
-          <p class="note">The magical Spoiling Fridge provides you with recipes and cooking ideas using your ingredients at home. </p>
-        </div>
+          <p class="note">This magical Spoiling Fridge provides you with recipes using what you have. </p>
+          <p class="note">Feed it with ingredients, cooking ideas, and much more!* </p>
 
-        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
-          <p class="note">Feed it with your ingredients before they go bad, or they will end up in the black hole inside Spoiling Fridge and be forever gone!</p>
-        </div>
-
-        <div class="sticky" style="font-family: 'Coming Soon', cursive;">
-          <p class="note">Have dietary restrictions? Not to worry! The Spoiling Fridge will filter out the ones that you don't want. </p>
-        </div>
+          <p class="note">*preferably not a zombie ** </p>
+          <p class="note">**hey, why the heck not?? </p>
       </div>
-
 
       <!--Search controls-->
       <div class="searchctrl">
@@ -89,65 +199,43 @@
           <form ng-submit="lstctrl.search()">
             <input type="text"
                    id="search"
-                   autocomplete="off"
-                   placeholder="Ingredients or keywords">
+                   placeholder="Ready, set, go">
                    <input id="search_submit" type="submit">
           </form>
         </div>
-
       </div> <!--end of search bar-->
 
-       <!--filters-->
-       <div class="filters">
-         <span class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-
-      </div> <!--end of filters-->
-
+      <div class="searchctrl">
+        <p id="src-ins">(Separate ingredients with commas)</p>
+      </div>
 
     </div> <!--end of inner container-->
 
+    <!--search message-->
+    <div id="src-msg" class="src-msg"></div>
+
     <!--results-->
-    <div>
-        <!--results block-->
-        <div class="results">
-          <div class="yitiao" ng-repeat="hit in lstctrl.data">
-            <div class="col pic">
-              <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive" style="width: 100px; height: auto; float: left; margin: 2%;">
-            </div>
-            <div class="col text">
-              <h4>{{hit.recipe.label}}</h4>
-              <h5><strong>Calories: </strong> {{hit.recipe.calories}}</h5>
-              <h5><strong>Recipe: </strong>
-                <a href="{{hit.recipe.url}}" target="_blank">Click me!</a>
-              </h5>
-              <h5><strong>Health Labels: </strong> <span ng-repeat="healthLabel in hit.recipe.healthLabels">{{healthLabel + " | "}}</span> </h5>
-              <h5><strong>Diets: </strong> <span ng-repeat="dietLabel in hit.recipe.dietLabels">{{dietLabel + " | "}}</span> </h5>
-            </div>
-          </div>
+    <div class="results">
+      <div class="yitiao" ng-repeat="hit in lstctrl.data">
+        <div class="col pic">
+          <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive" style="width: 100px; height: auto; float: left; margin: 2%;">
         </div>
+        <div class="col text">
+          <h4>{{hit.recipe.label}}</h4>
+          <h5><strong>Calories/serving: </strong>
+            {{(hit.recipe.calories)/(hit.recipe.yield) | number: 1}}
+          </h5>
+          <h5><strong>Recipe: </strong>
+            <a href="{{hit.recipe.url}}" target="_blank">Click me!</a>
+          </h5>
+          <h5><strong>Health Labels: </strong> <span ng-repeat="healthLabel in hit.recipe.healthLabels">{{healthLabel + " | "}}</span> </h5>
+          <h5><strong>Diets: </strong> <span ng-repeat="dietLabel in hit.recipe.dietLabels">{{dietLabel + " | "}}</span> </h5>
+          <h5><strong>Source: </strong> {{hit.recipe.source}}</h5>
+        </div>
+      </div>
+    </div> <!--end of results-->
 
-     </div> <!--end of results-->
-
-  </div> <!--end of body container-->
+  </div> <!--end of body container/angular controller-->
 
 
   <!--footer-->
