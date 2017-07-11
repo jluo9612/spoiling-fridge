@@ -1,4 +1,4 @@
-<h1>The Spoiling Fridge</h1>
+<h1>Spoiling Fridge</h1>
 
 
 <img src="screenshot.png">
