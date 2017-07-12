@@ -44,83 +44,20 @@
         <p>Dietary concerns? The Fridge's got you.</p>
       </div>
 
-      <!-- <span class="label"> Health/Diets: </span> -->
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Vegetarian</span>
+      <div style="padding-right: 5%; display: inline-block;" ng-repeat="diet in lstctrl.dietArray">
+       <div class="switch">
+         <label>
+           <input type="checkbox" ng-model="diet.on" ng-change="lstctrl.checkChange()">
+           <div class="slider round"></div>
+         </label>
+       </div>
+       <span class="label">{{diet.name}}</span>
+     </div>
 
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Vegan</span>
+     <hr>
 
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Low-sodium</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Gluten-free</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Low-sugar</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Low-fat</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Paleo</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Low-carb</span>
-
-         <div class="switch">
-           <label>
-             <input type="checkbox">
-             <div class="slider round"></div>
-           </label>
-         </div>
-         <span class="label">Dairy-free</span>
-
-         <hr>
-
-         <span class="label">Calories: </span>
-         <input type="range" min="0" max="90000" step="0.1" value="0">
+     <span class="label">Calories/serving: </span>
+     <input type="range" min="0" max="90000" step="0.1" value="0">
 
     </div> <!--end of filters-->
 
@@ -130,7 +67,7 @@
     function openNav() {
         document.getElementById("mySidenav").style.height = "250px";
         document.getElementById("main").style.marginTop = "250px";
-        document.getElementById("main").style.filter = "blur(2px)";
+        document.getElementById("main").style.filter = "blur(1.5px)";
     }
 
     function closeNav() {
@@ -216,7 +153,7 @@
 
     <!--results-->
     <div class="results">
-      <div class="yitiao" ng-repeat="hit in lstctrl.data">
+      <div class="yitiao" ng-repeat="hit in lstctrl.data | filter:lstctrl.myFunc">
         <div class="col pic">
           <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive" style="width: 100px; height: auto; float: left; margin: 2%;">
         </div>
@@ -235,13 +172,14 @@
       </div>
     </div> <!--end of results-->
 
-  </div> <!--end of body container/angular controller-->
-
-
   <!--footer-->
-  <footer>
-
+  <footer style="text-align: right;">
+    <p class="note" style="vertical-alignment: middle; padding: 2%;">Designed and built by <a href="https://github.com/jluo9612"><img src="sign.png" style="width: 230px; height: 100px;"></a>
+    </p>
+    <br>
+    <p class="note" style="vertical-alignment: middle; padding: 1%; font-size: 15px;">(It's not copyrighted, but just know that I'm the first person that assembled everything here from Google Fonts, W3C, Bootstrap and many more in case this design becomes popular and everybody starts using it)</p>
   </footer>
 
+</div> <!--end of body container/angular controller-->
 </body>
 </html>

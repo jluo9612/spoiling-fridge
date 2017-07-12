@@ -22,7 +22,7 @@ function listController ($http) {
       }
     }).then(function successCallback(response) {
       // on success
-      console.log(response);
+      // console.log(response);
       vm.data = response.data.hits;
 
       if (vm.data.length == 0) {
@@ -37,5 +37,43 @@ function listController ($http) {
 
   }
 
+   // filter logic
+   vm.showAll = true;
+   vm.checkChange = function() {
+       for(t in vm.dietArray){
+           if(vm.dietArray[t].on){
+               vm.showAll = false;
+               return;
+           }
+       }
+       vm.showAll = true;
+   };
+
+
+   vm.myFunc = function(a) { // a = every hit
+      console.log(a);
+      if(vm.showAll) { return true; }
+      var sel = false;
+      for(diet in vm.dietArray){
+           var t = vm.dietArray[diet];
+           console.log(t);
+           if(t.on){
+               if(a.recipe.healthLabels.indexOf(t.name) == -1){ // maintain later; not all labels are healthLabels
+                   return false;
+               }else{
+                   sel = true;
+               }
+           }
+       }
+      return sel;
+   };
+
+   // filter labels
+   vm.dietArray = [
+     {name: "Vegetarian", on: false},
+     {name: "Vegan", on: false},
+     {name: "Gluten-free", on: false},
+     {name: "Low-sodium", on: false}
+    ];
 
 }
