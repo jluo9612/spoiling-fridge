@@ -26,13 +26,13 @@ function listController ($http) {
       vm.data = response.data.hits;
 
       if (vm.data.length == 0) {
-        document.getElementById("src-msg").innerHTML = "<h2>Nothing was found! Please check your inputs.</h2>";
+        document.getElementById("msg-top").innerHTML = "<h2>Nothing was found! Please check your inputs.</h2>";
       } else {
-        document.getElementById("src-msg").innerHTML = "<h2>Prepare to feast!</h2>";
+        document.getElementById("msg-top").innerHTML = "<h2>Prepare to feast!</h2>";
       }
 
     }, function errorCallback() {
-      document.getElementById("src-msg").innerHTML = "<h2>Request failed. Please check your Internet connection and try again.</h2>";
+      document.getElementById("msg-top").innerHTML = "<h2>Request failed. Please check your Internet connection and try again.</h2>";
     });
 
   }
@@ -51,12 +51,12 @@ function listController ($http) {
 
 
    vm.myFunc = function(a) { // a = every hit
-      console.log(a);
+      // console.log(a);
       if(vm.showAll) { return true; }
       var sel = false;
       for(diet in vm.dietArray){
            var t = vm.dietArray[diet];
-           console.log(t);
+           // console.log(t);
            if(t.on){
                if(a.recipe.healthLabels.indexOf(t.name) == -1){ // maintain later; not all labels are healthLabels
                    return false;

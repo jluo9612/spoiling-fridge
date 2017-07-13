@@ -9,6 +9,9 @@
   <!--animate.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
+  <!--Font-awesome.css -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
   <!--Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Philosopher|Comfortaa" rel="stylesheet">
 
@@ -19,6 +22,7 @@
   <link rel="stylesheet" href="css/rotate.css">
   <link rel="stylesheet" href="css/switch.css">
   <link rel="stylesheet" href="css/sidenav.css">
+  <link rel="stylesheet" href="css/top.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
   <!--external js libraries-->
@@ -29,13 +33,14 @@
   <!--application scripts-->
   <script src="js/app.js"></script>
   <script src="js/controllers/list.js"></script>
+  <script src="js/page.js"></script>
+
 </head>
 
 <body ng-controller="listController as lstctrl">
-
   <!--side nav-->
   <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a onclick="closeNav()" class="closebtn" style="cursor: pointer;">&times;</a>
 
     <!--filters-->
     <div class="filters">
@@ -63,23 +68,12 @@
 
   </div> <!--end of sidenav-->
 
-  <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.height = "250px";
-        document.getElementById("main").style.marginTop = "250px";
-        document.getElementById("main").style.filter = "blur(1.5px)";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.height = "0";
-        document.getElementById("main").style.marginTop= "0";
-        document.getElementById("main").style.filter = "blur(0px)";
-    }
-  </script>
-
-
   <!--main container-->
   <div class="container-fluid" id="main">
+
+    <!--scroll to top button-->
+    <a href="javascript:rTT();" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
     <!--open nav-->
     <div>
       <h1 onclick="openNav()" class="rotate" style="font-family: 'Philosopher'; font-size: 40px; position: fixed; cursor: pointer;">Filters &#9776;</h1>
