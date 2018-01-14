@@ -18,7 +18,8 @@
   <!--custom stylesheets-->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/search.css">
-  <!-- <link rel="stylesheet" href="css/spinner.css"> -->
+  <!--<link rel="stylesheet" href="css/spinner.css">-->
+  <link rel="stylesheet" href="css/loader.css">
   <link rel="stylesheet" href="css/rotate.css">
   <link rel="stylesheet" href="css/switch.css">
   <link rel="stylesheet" href="css/sidenav.css">
@@ -41,6 +42,10 @@
 </head>
 
 <body ng-controller="listController as lstctrl">
+  <!-- Loader that goes over everything -->
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
   <!--side nav-->
   <div id="mySidenav" class="sidenav">
     <a onclick="closeNav()" class="closebtn" style="cursor: pointer;">&times;</a>

@@ -8,7 +8,8 @@ function listController ($http) {
   // view model
   var vm = this;
   vm.search = function () {
-
+    var loader = document.getElementsByClassName("loader-container")[0];
+    loader.style.display = "flex";
     var input = document.getElementById("search").value;
     $http({
       url: "https://api.edamam.com/search",
@@ -23,9 +24,10 @@ function listController ($http) {
     }).then(function successCallback(response) {
       // on success
       // console.log(response);
+        loader.style.display = "none";
       vm.data = response.data.hits;
 
-      if (vm.data.length == 0) {
+      if (vm.data.length === 0) {
         document.getElementById("msg-top").innerHTML = "<h2>Nothing was found! Please check your inputs.</h2>";
       } else {
         document.getElementById("msg-top").innerHTML = "<h2>Prepare to feast!</h2>";
@@ -35,12 +37,12 @@ function listController ($http) {
       document.getElementById("msg-top").innerHTML = "<h2>Request failed. Please check your Internet connection and try again.</h2>";
     });
 
-  }
+  };
 
    // filter logic
    vm.showAll = true;
    vm.checkChange = function() {
-       for(t in vm.dietArray){
+       for(var t in vm.dietArray){
            if(vm.dietArray[t].on){
                vm.showAll = false;
                return;
@@ -58,7 +60,7 @@ function listController ($http) {
            var t = vm.dietArray[diet];
            // console.log(t);
            if(t.on){
-               if(a.recipe.healthLabels.indexOf(t.name) == -1){ // maintain later; not all labels are healthLabels
+               if(a.recipe.healthLabels.indexOf(t.name) === -1){ // maintain later; not all labels are healthLabels
                    return false;
                }else{
                    sel = true;
