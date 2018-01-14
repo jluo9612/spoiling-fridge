@@ -86,13 +86,13 @@
     <div class="inner container-fluid">
       <!--page title-->
       <div class="page-title">
-        <!-- <img src="assets/ChefEmoji.jpg" style="width: 8%; height: auto;">
+        <img src="assets/ChefEmoji.jpg" style="width: 8%; height: auto;">
         <img src="assets/paella.png" style="width: 8%; height: auto;">
         <img src="assets/nabe.png" style="width: 8%; height: auto;">
         <img src="assets/spa.png" style="width: 8%; height: auto;">
         <img src="assets/ramen.png" style="width: 8%; height: auto;">
         <img src="assets/pizz.png" style="width: 8%; height: auto;">
-        <img src="assets/curry.png" style="width: 8%; height: auto;"> -->
+        <img src="assets/curry.png" style="width: 8%; height: auto;">
         <h1 style="font-family: 'Comfortaa', cursive; font-weight: bold; color: #312c27; font-size: 60px;">Spoiling Fridge</h1>
       </div>
 
@@ -128,7 +128,7 @@
 
     <!--results-->
     <div class="results">
-      <div class="yitiao" ng-repeat="hit in lstctrl.data | filter:lstctrl.myFunc">
+      <div class="yitiao" ng-repeat="hit in lstctrl.data | filter:lstctrl.filtered">
         <div class="col pic">
           <img ng-src="{{hit.recipe.image}}" class="img-rounded img-responsive" style="width: 100px; height: auto; float: left; margin: 2%;">
         </div>
