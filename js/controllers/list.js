@@ -23,25 +23,26 @@ function listController ($http) {
       }
     }).then(function successCallback(response) {
       // on success
+
       // console.log(response);
         loader.style.display = "none";
-      vm.data = response.data.hits;
 
-      if (vm.data.length === 0) {
-        document.getElementById("msg-top").innerHTML = "<h2>Nothing was found! Please check your inputs.</h2>";
-      } else {
-        document.getElementById("msg-top").innerHTML = "<h2>Prepare to feast!</h2>";
-      }
+      vm.data = response.data.hits;
+      // if it's loading, show animation
+
+      // if (vm.data.length == 0) {
+      //   document.getElementById("msg-top").innerHTML = "<h2>Nothing was found! Please check your inputs.</h2>";
+      // } else {
+      //   document.getElementById("msg-top").innerHTML = "<h2>Prepare to feast!</h2>";
+      // }
 
     }, function errorCallback() {
       document.getElementById("msg-top").innerHTML = "<h2>Request failed. Please check your Internet connection and try again.</h2>";
     });
 
-  };
 
-   // filter logic
    vm.showAll = true;
-   vm.checkChange = function() {
+   vm.checkChange = function() { // triggers filter
        for(var t in vm.dietArray){
            if(vm.dietArray[t].on){
                vm.showAll = false;
@@ -51,14 +52,13 @@ function listController ($http) {
        vm.showAll = true;
    };
 
-
-   vm.myFunc = function(a) { // a = every hit
+   // filter logic
+   vm.filtered = function(a) { // a = every hit
       // console.log(a);
       if(vm.showAll) { return true; }
       var sel = false;
       for(diet in vm.dietArray){
-           var t = vm.dietArray[diet];
-           // console.log(t);
+           var t = vm.dietArray[diet]; // every object in dietArray
            if(t.on){
                if(a.recipe.healthLabels.indexOf(t.name) === -1){ // maintain later; not all labels are healthLabels
                    return false;
