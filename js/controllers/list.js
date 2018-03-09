@@ -39,7 +39,7 @@ function listController ($http) {
     }, function errorCallback() {
       document.getElementById("msg-top").innerHTML = "<h2>Request failed. Please check your Internet connection and try again.</h2>";
     });
-
+  }
 
    vm.showAll = true;
    vm.checkChange = function() { // triggers filter
