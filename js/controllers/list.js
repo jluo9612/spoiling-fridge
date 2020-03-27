@@ -12,12 +12,12 @@ function listController ($http) {
     loader.style.display = "flex";
     var input = document.getElementById("search").value;
     $http({
-      url: "https://api.edamam.com/search",
+      url: "https://cors-anywhere.herokuapp.com/https://api.edamam.com/search",
       method: "GET",
       params: {
         q: input,
-        app_id: "e5d737a9",
-        app_key: "b797de8edb932f8dadc667e9364348e3",
+        app_id: "4f480d5a",
+        app_key: "94957ffe7eeda4b44fba310ac8e64eec",
         from: 0,
         to: 200
       }
